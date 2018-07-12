@@ -1,0 +1,50 @@
+
+<nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand">Color Grids</span>
+  <a class="navbar-brand2"><i><%= @user.name if @user.present?%></i></a>
+</nav>
+
+<div class = "colorgrids">
+	<%= render "colorgrids"%>
+		
+</div>
+
+
+   <div style="margin-left:190px;">
+   Select your color: 
+  <%= text_field_tag :color, "", class: " hexacode",id:'hexacode' %>
+  <%= submit_tag "Apply" ,class: "apply_color btn btn-primary"%>
+
+</div>
+
+
+
+
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="validateGrid" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="color: red"> Error</h4>
+        </div>
+        <div class="modal-body">
+          <p>Please select a Grid and color</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+

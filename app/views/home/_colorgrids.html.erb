@@ -1,0 +1,35 @@
+
+<div class="col-md-12">
+  <div class="col-md-6">
+    <table class="table table-bordered">
+      <%for row in 1..20 do %>
+       <tr>
+        <% for col in 1..20 do%>
+          <td>
+            <% square_grid = get_grid_color(row,col) %>
+          <div class="square" data-toggle="tooltip" style="background-color: <%= square_grid.pluck(:color).last%>" title="<%= square_grid.last.user.name if !square_grid.blank? %>" id="<%=row%>,<%=col%>"></div>
+          </td>
+        <%end%>
+       </tr>
+      <%end%>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <h4><i>Users List :</i></h4>
+    <table class="table table-bordered" style="background-color: white;">
+      <thead >
+        <tr><th class="text-center">User Name</th>
+        <th class="text-center">Favourite Color</th></tr>
+      </thead>
+      <tbody>
+        <%User.find_each do |user|%>
+        <tr>
+         <td class = "text-center"> <%= user.name%> </td>
+         <td class = "text-center" style="background-color: <%= get_fav_color(user)%>"><b style="color: white"> <%= get_fav_color(user)%></b> </td>
+         </tr>
+        <%end%>
+      
+     </tbody>
+  </table>
+  </div>
+</div>
